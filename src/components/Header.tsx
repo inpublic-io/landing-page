@@ -3,6 +3,7 @@ import { ReactComponent as Logo } from '../logo.svg';
 import { Header as GrommetHeader, Anchor, ResponsiveContext, Box, Menu as GrommetMenu } from 'grommet';
 import { Menu as MenuIcon } from 'grommet-icons';
 import styled from 'styled-components';
+import Follow from '../features/twitter/Follow';
 
 const Menu = styled(GrommetMenu)`
   &>div {
@@ -15,19 +16,14 @@ type ResponsiveMenuItemProps = {
   href: string;
 };
 
-const Follow = () => {
-  return <Anchor className="twitter-follow-button"
-    href="https://twitter.com/inpublic_io"
-    data-size="large">
-    Follow @inpublic_io</Anchor>;
-};
-
 const ResponsiveMenu = ({ items }: any): JSX.Element => {
   const size = useContext(ResponsiveContext);
+
   return (
-    <Box justify="end" direction="row" gap="small">
+    <Box justify="end" direction="row" gap={size === "small" ? "medium" : "small"}>
       <Follow />
-      {size === 'small' ? (
+      <Box width="6px" height="100%" />
+      {(['xsmall', 'small', 'medium'].indexOf(size) >= 0) ? (
         <Menu
           a11yTitle="Navigation Menu"
           dropProps={{ align: { top: 'bottom', right: 'right' } }}
@@ -36,7 +32,7 @@ const ResponsiveMenu = ({ items }: any): JSX.Element => {
         />
       ) : (
         items.map(({ label, href }: ResponsiveMenuItemProps) =>
-          <Anchor key={label.trim().toLowerCase()} href={href} label={label} />
+          <Anchor margin="xsmall" key={label.trim().toLowerCase()} href={href} label={label} />
         )
       )}
     </Box>
@@ -45,6 +41,7 @@ const ResponsiveMenu = ({ items }: any): JSX.Element => {
 
 function Header() {
   const size = useContext(ResponsiveContext);
+
   return (
     <GrommetHeader pad={size === 'small' ? "medium" : "large"}>
       <Anchor
