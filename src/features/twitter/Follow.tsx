@@ -6,25 +6,7 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { Twitter } from 'grommet-icons';
 import { useContext } from 'react';
-
-const thousands = 4;
-const millions = 7;
-const billions = 10;
-
-const formatNumber = (source: number): string => {
-  const inString = source.toString();
-  const length = inString.length;
-  
-  // TODO turn units into maps and iterate through them
-  if (length >= billions) {
-    return inString.substring(0, length - (billions - 1)) + "B";
-  } else if (length >= millions) {
-    return inString.substring(0, length - (millions - 1)) + "M"
-  } else if (length >= thousands) {
-    return inString.substring(0, length - (thousands - 1)) + "K"
-  }
-  return inString;
-}
+import { formatNumber } from '../../utils/numbers';
 
 export default function Follow() {
   const size = useContext(ResponsiveContext);

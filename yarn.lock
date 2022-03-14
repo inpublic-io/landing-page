@@ -1191,10 +1191,10 @@
   dependencies:
     browser-headers "^0.4.1"
 
-"@inpublic-io/twitter-protocol@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@inpublic-io/twitter-protocol/-/twitter-protocol-0.0.3.tgz#1d8cd6c23eed12075df2fc4bd74d65f943ae3876"
-  integrity sha512-nkGsLgVG5q84QYjK0IUsthF/Hh0oK76EIpp6rwEH1QaYcRT5CvR1mEMumN+2T8yquJu1xEYsFuOgOc7zgl5lhg==
+"@inpublic-io/twitter-protocol@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@inpublic-io/twitter-protocol/-/twitter-protocol-0.0.7.tgz#22a7be81c1510cf33f24ee73cfe95d4dbee9f3d0"
+  integrity sha512-eBBeJ/TUqZpycI0c26eumpzzkwBq7gpK2doqedcx/x1kOMpLzVF33QkT/kWUG4Ajs9zVnjiJpbqwrHT0ho0ynA==
   dependencies:
     "@improbable-eng/grpc-web" "^0.15.0"
     google-protobuf "^3.19.4"
@@ -6147,6 +6147,11 @@ mkdirp@^0.5.5, mkdirp@~0.5.1:
   integrity sha512-NKmAlESf6jMGym1++R0Ra7wvhV+wFW63FaSOFPwRahvea0gMUcGUhVeAg/0BC0wiv9ih5NYPB1Wn1UEI1/L+xQ==
   dependencies:
     minimist "^1.2.5"
+
+moment@^2.29.1:
+  version "2.29.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
+  integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
 
 ms@2.0.0:
   version "2.0.0"

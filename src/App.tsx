@@ -11,6 +11,7 @@ import Hero from './components/Hero';
 import { useAppDispatch, useAppSelector } from './app/hooks';
 import { selectNotification, close } from './features/notification';
 import { deepMerge } from 'grommet/utils';
+import Numbers from './components/Numbers';
 
 const theme = deepMerge({
   global: {
@@ -70,6 +71,7 @@ function App() {
       <Header />
       <Main>
         <Hero />
+        <Numbers />
       </Main>
       <Footer />
       {notification.visible && (
