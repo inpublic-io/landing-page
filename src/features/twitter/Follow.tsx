@@ -65,7 +65,7 @@ export default function Follow() {
         fill
         icon={<Twitter size="small" color="white" />}
         label={<Text size="small" color="white" weight="bold">{size !== 'small' && "Follow"} @inpublic_io</Text>}
-        onClick={() => { }}
+        href={`https://twitter.com/intent/follow?original_referer=https%3A%2F%2F${window.location.host}%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Efollow%7Ctwgr%5Einpublic_io&region=follow_link&screen_name=inpublic_io`}
       />
     </Box>
   );

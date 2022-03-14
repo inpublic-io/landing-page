@@ -1,4 +1,4 @@
-import { Box, Grid, Heading, ResponsiveContext, Paragraph, Button, Text } from "grommet";
+import { Box, Grid, Heading, ResponsiveContext, Paragraph, Button, Text, Anchor } from "grommet";
 import { useContext } from "react";
 import Highlights from './Highlights';
 import { Twitter } from 'grommet-icons';
@@ -29,6 +29,7 @@ function Hero() {
   const size = useContext(ResponsiveContext);
   return (
     <ResponsiveGrid
+      id='hero'
       fill
       justify="stretch"
       areas={{
@@ -45,16 +46,28 @@ function Hero() {
       >
         <Heading size="small">Collaborate and share with an open and thriving community</Heading>
         <Paragraph size="large">Twitter-based platform for building and learning #inpublic</Paragraph>
-        <Box width="220px" height="54px" pad={{ vertical: "xsmall" }}>
-          <Button primary color="#1d9bf0" fill size="small" style={{ borderRadius: "25px" }} icon={<Twitter color="white" />} label={<Text color="white" weight="bold">Build #inpublic</Text>} onClick={() => { }} />
+        <Box width="220px" height="48px" pad={{ vertical: "xsmall" }}>
+          <Button
+            primary
+            color="#1d9bf0"
+            fill
+            size="small"
+            style={{ borderRadius: "25px" }}
+            icon={<Twitter color="white" />}
+            label={<Text color="white" weight="bold">#buildinpublic</Text>}
+            href={`https://twitter.com/intent/tweet?related=buildinpublic,inpublic_io&hashtags=buildinpublic`} />
         </Box>
         <Text size="small">You can start by letting other builders know what you are working on</Text>
       </Box>
       <Box
         gridArea="highlights"
         pad={size === 'medium' ? "medium" : "large"}
+        width={(['large'].indexOf(size) >= 0) ? '400px' : 'initial'}
       >
         <Highlights />
+        <Text margin='small' alignSelf='center'>
+          Lists will be available soon, <Anchor href='#home' label='follow us' /> to keep posted!
+        </Text>
       </Box>
     </ResponsiveGrid>
   );

@@ -9,13 +9,14 @@ const Highlights = () => {
   return (
     <Grid
       gap={size === 'xlarge' ? 'medium' : 'small'}
-      columns={(['medium', 'xlarge'].indexOf(size) >= 0) ? ['flex', 'flex'] : '100%'}
+      columns={(['xlarge'].indexOf(size) >= 0) ? ['flex', 'flex'] : '100%'}
+      alignSelf='center'
     >
       {["1495111711988322304", "1495790454406672386"].map((tweetId) => (
         <Box
           key={tweetId}
           style={{
-            maxWidth: size === 'xlarge' ? '275px' : 'initial',
+            maxWidth: ['xlarge'].indexOf(size) >= 0 ? '275px' : 'initial',
           }}
         >
           <TwitterTweetEmbed

@@ -1,29 +1,33 @@
 import { ReactComponent as Logo } from '../logo.svg';
 import { Anchor, Box, Footer as GrommetFooter, Text } from 'grommet';
+import { capitalize } from '../utils/strings';
 
 const FooterAnchor = ({ ...rest }) => (
-  <Anchor href="/" size="small" color="white" {...rest} />
+  <Anchor size="small" color="white" {...rest} />
 );
 
 const data: any[] = [
-  [
-    "App",
-    "home",
-    "beta",
-    "sponsors"
-  ],
-  [
-    "Legal",
-    "terms",
-    "privacy",
-    "security"
-  ],
-  [
-    "Company",
-    "about",
-    "press",
-    "jobs"
-  ],
+  {
+    title: "App",
+    refs: [
+      {
+        label: "home",
+        href: "#header"
+      },
+      {
+        label: "lists",
+        href: "#hero"
+      },
+      {
+        label: "analytics",
+        href: "#analytics"
+      },
+      {
+        label: "contact",
+        href: "#contact"
+      },
+    ],
+  }
 ];
 
 
@@ -31,7 +35,9 @@ function Footer() {
   return (
     <GrommetFooter background="#3E6866" pad="large" align="bottom">
       <Box gap="xsmall">
-        <Box align="center" gap="small">
+        <Box align="center" gap="small" onClick={() => {
+          window.scrollTo(0, 0);
+        }}>
           <Logo width={64} height={64} fill="#50C1AE" />
           <Text alignSelf="center" color="brand" weight="bold">
             inpublic
@@ -40,13 +46,13 @@ function Footer() {
       </Box>
       <Box fill direction="row" justify="end">
         {data.map(item => (
-          <Box gap="large" pad={{horizontal: "large"}} key={item[0]}>
+          <Box gap="large" pad={{ horizontal: "large" }} key={item[0]}>
             <Text weight="bold" size="small">
-              {item[0]}
+              {item.title}
             </Text>
             <Box>
-              {[1, 2, 3].map(i => (
-                <FooterAnchor key={item[i]}>{item[i].charAt(0).toUpperCase() + item[i].slice(1)}</FooterAnchor>
+              {item.refs.map(({ label, href }: any) => (
+                <FooterAnchor key={label} href={href}>{capitalize(label)}</FooterAnchor>
               ))}
             </Box>
           </Box>

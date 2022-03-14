@@ -1,9 +1,15 @@
 import { useContext } from 'react';
 import { ReactComponent as Logo } from '../logo.svg';
 import { Header as GrommetHeader, Anchor, ResponsiveContext, Box, Menu as GrommetMenu } from 'grommet';
-import { Menu as MenuIcon } from 'grommet-icons';
+import {
+  Menu as MenuIcon,
+  Chat,
+  ChatOption,
+  Optimize
+} from 'grommet-icons';
 import styled from 'styled-components';
 import Follow from '../features/twitter/Follow';
+
 
 const Menu = styled(GrommetMenu)`
   &>div {
@@ -14,6 +20,7 @@ const Menu = styled(GrommetMenu)`
 type ResponsiveMenuItemProps = {
   label: string;
   href: string;
+  icon: JSX.Element;
 };
 
 const ResponsiveMenu = ({ items }: any): JSX.Element => {
@@ -31,8 +38,8 @@ const ResponsiveMenu = ({ items }: any): JSX.Element => {
           items={items}
         />
       ) : (
-        items.map(({ label, href }: ResponsiveMenuItemProps) =>
-          <Anchor margin="xsmall" key={label.trim().toLowerCase()} href={href} label={label} />
+        items.map(({ label, href, icon }: ResponsiveMenuItemProps) =>
+          <Anchor margin="xsmall" icon={size !== 'large' ? icon : undefined} key={label.trim().toLowerCase()} href={href} label={label} />
         )
       )}
     </Box>
@@ -43,20 +50,31 @@ function Header() {
   const size = useContext(ResponsiveContext);
 
   return (
-    <GrommetHeader pad={size === 'small' ? "medium" : "large"}>
+    <GrommetHeader
+      id='header'
+      pad={size === 'small' ? "medium" : "large"}
+      background='white'
+    >
       <Anchor
-        href="/"
+        href="#hero"
         icon={<Logo width={32} height={32} fill="#50C1AE" />}
         label={size === 'small' ? undefined : "inpublic"}
       />
       <ResponsiveMenu items={[
         {
           label: "Lists",
-          href: "#lists",
+          href: "#hero",
+          icon: <ChatOption size='small' style={{ padding: ['large', 'xlarge'].indexOf(size) >= 0 ? '0 4px' : '6px' }} />
+        },
+        {
+          label: "Analytics",
+          href: "#analytics",
+          icon: <Optimize size='small' style={{ padding: ['large', 'xlarge'].indexOf(size) >= 0 ? '0 4px' : '6px' }} />
         },
         {
           label: "Contact",
           href: "#contact",
+          icon: <Chat size='small' style={{ padding: ['large', 'xlarge'].indexOf(size) >= 0 ? '0 4px' : '6px' }} />
         },
       ]} />
     </GrommetHeader>

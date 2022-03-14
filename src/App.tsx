@@ -11,7 +11,7 @@ import Hero from './components/Hero';
 import { useAppDispatch, useAppSelector } from './app/hooks';
 import { selectNotification, close } from './features/notification';
 import { deepMerge } from 'grommet/utils';
-import Numbers from './components/Numbers';
+import Numbers from './components/Analytics';
 
 const theme = deepMerge({
   global: {

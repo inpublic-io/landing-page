@@ -8,7 +8,7 @@ import { formatNumber } from '../utils/numbers';
 import Skeleton from 'react-loading-skeleton';
 
 
-function Numbers() {
+function Analytics() {
   const size = useContext(ResponsiveContext);
   const range = "-7d";
   const intervalQuery = new IntervalAggregateQuery();
@@ -23,11 +23,11 @@ function Numbers() {
   const { data: contributorsStats, isSuccess: contributorsStatsSuccess } = useContributorsStatsQuery(rangeQuery.toObject());
 
   return (
-    <Box pad="large" width='100%'>
+    <Box id="analytics" pad="large" width='100%'>
       <Heading alignSelf='center' size="small">Community numbers</Heading>
       <Grid
         gap={size === 'xlarge' ? 'xlarge' : 'small'}
-        columns={(['xlarge'].indexOf(size) >= 0) ? ['auto', 'auto'] : '100%'}
+        columns={(['large', 'xlarge'].indexOf(size) >= 0) ? ['auto', 'auto'] : '100%'}
         width='100%'
         justifyContent='center'
         alignSelf='center'
@@ -138,4 +138,4 @@ function Numbers() {
   )
 }
 
-export default Numbers;
+export default Analytics;
