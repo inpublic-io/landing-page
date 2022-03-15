@@ -46,7 +46,7 @@ function Hero() {
       >
         <Heading size="small">Collaborate and share with an open and thriving community</Heading>
         <Paragraph size="large">Twitter-based platform for building and learning #inpublic</Paragraph>
-        <Box width="220px" height="48px" pad={{ vertical: "xsmall" }}>
+        <Box width="220px" height={size === 'small' ? '42px' : '48px'} pad={{ vertical: "xsmall" }}>
           <Button
             primary
             color="#1d9bf0"
